@@ -130,5 +130,15 @@ namespace CajaBanco.Services.Presupuesto
         {
             return await _repository.SpListaBanbifArchivoCab(empresa, numeroPresupuesto);
         }
+
+        public async Task<ResultDto<BCPArchivoCab>> SpListaBCPArchivoCab(string empresa, string numeroPresupuesto)
+        {
+            return await _repository.SpListaBCPArchivoCab(empresa, numeroPresupuesto);
+        }
+
+        public async Task<ResultDto<BCPArchivoDet>> SpListaBcpArchivoDet(string empresa, string numeroPresupuesto)
+        {
+            return await _repository.SpListaBcpArchivoDet(empresa, numeroPresupuesto);
+        }
     }
 }

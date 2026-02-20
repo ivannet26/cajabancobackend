@@ -700,6 +700,69 @@ namespace CajaBanco.Repository.Presupuesto
             return  result;
         }
 
-        
+        public async Task<ResultDto<BCPArchivoCab>> SpListaBCPArchivoCab(string empresa, string numeroPresupuesto)
+        {
+            ResultDto<BCPArchivoCab> result = new ResultDto<BCPArchivoCab>();
+            List<BCPArchivoCab> lista = new List<BCPArchivoCab>();
+            try
+            {
+                SqlConnection cn = new SqlConnection(_connectionString);
+                DynamicParameters par = new DynamicParameters();
+                par.Add("@codigoEmpresa", empresa);
+                par.Add("@numeroPresupuesto", numeroPresupuesto);
+                lista = (List<BCPArchivoCab>)await cn.QueryAsync<BCPArchivoCab>("Spu_Ban_Trae_BCPCabArchivo",
+                   par, commandType: CommandType.StoredProcedure);
+                result.IsSuccess = lista.Count > 0 ? true : false;
+                result.Message = lista.Count > 0 ? "Informacion encontrada" : "NO se encontro informacion";
+                result.Data = lista.ToList();
+            }
+            catch (Exception ex) {
+                result.IsSuccess = false;
+                result.MessageException = ex.Message;
+            }
+            return result;
+        }
+
+        public async Task<ResultDto<BCPArchivoDet>> SpListaBcpArchivoDet(string empresa, string numeroPresupuesto)
+        {
+            ResultDto<BCPArchivoDet> result = new ResultDto<BCPArchivoDet>();
+            List<BCPArchivoDet> lista = new List<BCPArchivoDet>();
+            try
+            {
+                SqlConnection cn = new SqlConnection(_connectionString);
+                DynamicParameters par = new DynamicParameters();
+                par.Add("@codigoEmpresa", empresa);
+                par.Add("@numeroPresupuesto", numeroPresupuesto);
+                lista = (List<BCPArchivoDet>)await cn.QueryAsync<BCPArchivoDet>("Spu_Ban_Trae_BCPdetArchivo",
+                   par, commandType: CommandType.StoredProcedure);
+                result.IsSuccess = lista.Count > 0 ? true : false;
+                result.Message = lista.Count > 0 ? "Informacion encontrada" : "NO se encontro informacion";
+                result.Data = lista.ToList();
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccess = false;
+                result.MessageException = ex.Message;
+            }
+            return result;
+        }
+
+
+        //public async Task<ResultDto<BCPArchivoCab>> SpListaBcpArchivoCab(string empresa,  string numeroPresupuesto )
+        //{
+        //    ResultDto<BCPArchivoCab> result = new ResultDto<BCPArchivoCab>();
+        //    List<BCPArchivoCab> lista = new List<BCPArchivoCab>();
+        //    try
+        //    {
+        //        SqlConnection cn = new SqlConnection(_connectionString);
+        //        DynamicParameters par = new DynamicParameters();
+        //        par.Add("", empresa );
+        //        par.Add("", nombreLote);
+        //    }
+        //    catch (Exception ex) { 
+
+        //    }
+        //}
+
     }
 }

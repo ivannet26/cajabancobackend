@@ -7,6 +7,7 @@ using CajaBanco.Repository.Presupuesto;
 using Microsoft.AspNetCore.Http.Metadata;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Elfie.Serialization;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Identity.Client;
 using System.Configuration;
@@ -478,6 +479,37 @@ namespace CajaBancoAPI.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("SpListaBcpCab")]
+        public async Task<ActionResult> SpListaBCPArchivoCab(string empresa, string numeroPresupuesto)
+        {
+            try
+            {
+
+                var result = await this._app.SpListaBCPArchivoCab(empresa, numeroPresupuesto);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("SpListaBcpDet")]
+        public async Task<ActionResult> SpListaBCPArchivoDet(string empresa, string numeroPresupuesto)
+        {
+            try
+            {
+
+                var result = await this._app.SpListaBcpArchivoDet(empresa, numeroPresupuesto);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
     }
 }
