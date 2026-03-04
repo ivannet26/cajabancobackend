@@ -70,6 +70,9 @@ namespace CajaBanco.DTO.Presupuesto
         public double importecomprobantedolares { get; set; }
         public double importecomprobantesoles { get; set; }
 
+        public string numeroCuenta { get; set; }
+        public string nombreBanco { get; set; }
+
 
     }
 }
