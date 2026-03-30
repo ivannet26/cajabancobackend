@@ -1372,6 +1372,32 @@
   },
   {
     "ContainingType": "CajaBancoAPI.Controllers.PresupuestoController",
+    "Method": "SpEliminaDet",
+    "RelativePath": "Presupuesto/SpEliminaDet",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empresa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "codigoDetallePresupuesto",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "numeroPresupuesto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CajaBancoAPI.Controllers.PresupuestoController",
     "Method": "SpInserta",
     "RelativePath": "Presupuesto/SpInserta",
     "HttpMethod": "POST",
@@ -1457,6 +1483,48 @@
     "ContainingType": "CajaBancoAPI.Controllers.PresupuestoController",
     "Method": "SpListaBanbifArchivoCab",
     "RelativePath": "Presupuesto/SpListaBanbifArchivoCab",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empresa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "numeroPresupuesto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CajaBancoAPI.Controllers.PresupuestoController",
+    "Method": "SpListaBCPArchivoCab",
+    "RelativePath": "Presupuesto/SpListaBcpCab",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empresa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "numeroPresupuesto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CajaBancoAPI.Controllers.PresupuestoController",
+    "Method": "SpListaBCPArchivoDet",
+    "RelativePath": "Presupuesto/SpListaBcpDet",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
